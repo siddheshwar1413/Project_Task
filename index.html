@@ -1,0 +1,247 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="F:\Web Class\Eduline-Starter\asset\table.css"></script>
+<script src="F:\Web Class\Eduline-Starter\asset\java-script.js"></script>
+<link rel="stylesheet"
+  href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+<link rel="stylesheet"
+  href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+<script
+
+  src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+<script
+  src="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+	   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+
+
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+
+
+<style>
+
+
+
+.modal-dialog {
+  height: 95% !important;
+  padding-top:10%;
+}
+
+.modal-content {
+	width:600px;
+  height: 100% !important;
+  overflow:visible;
+}
+
+.modal-body {
+  height: 80%;
+  overflow:auto;
+}
+
+
+</style>
+</head>
+<body class="container" body-color=" color: #404E67;">
+<h2>Patient Details </h2>
+
+			
+
+<div style="width: 50%; height: 100px; float: left;"> 
+             <div class="container">
+      <!-- Horizonatal Form -->
+      
+      <div class="row">
+        <div class="col-xs-6">
+          <form class="form-horizontal action="index.php" method="post"">
+            <div class="form-group">
+              <label for="nameField" class="col-xs-2">First Name</label>
+              <div class="col-xs-10">
+                <input type="text" class="form-control" id="f1name" placeholder="Your Name" />
+                <span id ="err1"></span>
+              </div>
+            </div>
+          
+            <div class="form-group">
+              <label for="emailField" class="col-xs-2">DOB</label>
+              <div class="col-xs-10">
+                <input type="date"  class="form-control" id="DOB" onmouseout="ageCalculator()";  />
+              </div>
+            </div>
+          
+            <div class="form-group">
+              <label for="phoneField" class="col-xs-2">Age</label>
+              <div class="col-xs-10">
+                <input type="text" class="form-control" id="Age" />
+              </div>
+            </div>
+			
+            <div class="form-group">
+              <label for="" class="col-xs-2">Hospitals</label>
+              <div class="col-xs-10">
+              <select id="arr" class="form-control" onclick="GFG_Fun();"></select>   
+              </div>
+            </div>
+          <div class="form-group">
+              <label for="phoneField" class="col-xs-2">Ammount</label>
+              <div class="col-xs-10">
+                <input type="number" id="ammount" class="form-control" />
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+        </div>
+		 <div style="width: 100%;">
+     
+        <div style="margin-left: 20px; height: 100px;"> 
+          
+	<div class="container">
+      <!-- Horizonatal Form -->
+      <div class="row">
+        <div class="col-xs-6">
+          <form class="form-horizontal">
+            <div class="form-group">
+              <label for="nameField" class="col-xs-2"> Last Name</label>
+              <div class="col-xs-10">
+                <input type="text" class="form-control" id="lname1" placeholder="Your Name" />
+              </div>
+            </div>
+          
+            <div class="form-group">
+              <label for="emailField" class="col-xs-2">City</label>
+              <div class="col-xs-10">
+                   <select class="form-control" id="City">
+    <option>Mumbai</option>
+    <option>Delhi</option>
+    <option>Bangalore</option>
+    <option>Hyderabad</option>
+    <option>Pune</option>
+  </select>
+</div>
+              </div>
+            
+          
+            <div class="form-group">
+              <label for="phoneField" class="col-xs-2">Addmissions Date</label> 
+              <div class="col-xs-10">
+                <input type="date" class="form-control" id="adddate" placeholder="Your Phone Number" />
+              </div>
+            </div>
+          
+            <div class="form-group">
+              <label for="phoneField" class="col-xs-2"> Dicharge Date</label> 
+              <div class="col-xs-10">
+                <input type="date" class="form-control" id="disdate" placeholder="Your Phone Number" />
+              </div>
+            </div>
+          
+
+            
+            <div class="col-xs-10 col-xs-offset-2" "margin-right: 300px;>
+             <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal">Add Test</button>
+            </div>
+          
+
+          </form>
+        </div>
+      </div>
+    </div>
+	</div>
+
+  <div class="container">
+        <div class="table-wrapper">
+            <div class="table-title">
+                <div class="row">
+                    <div class="col-sm-8"><h2>Test Details</h2></div>
+                    <div class="col-sm-5">
+                      
+                    </div>
+                </div>
+            </div>
+            <table class="table table-bordered">
+                <thead>
+                    <tr>
+                        <th> Test Name</th>
+                        <th>Test date</th>
+                        <th>Test Price</th>
+                        <th>Test Result</th>
+                        <th>Doctor Remarks</th>
+                        <th>Actions</th>
+                        
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td id="t1"></td>
+                        <td id="t2"></td>
+                        <td id="t3"></td>
+                        <td id="t4"></td>
+                        <td id="t5"></td>
+                      
+                        <td>
+                        
+							<button type="button" class="btn btn-primary edit"id="btn" >Edit</button>
+                          <button type="button" id="btn1" class="btn btn-danger">Delete</button>
+                        </td>
+                    </tr>
+   
+                </tbody>
+            </table>
+        </div>
+    </div> 
+
+ <input type="submit" class="btn btn-success" "value="Submit">
+  
+           
+
+<div class="container">
+
+  <div class="modal fade" id="myModal" role="dialog">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+          <h4 class="modal-title">Add Test Details</h4>
+        </div>
+        <div class="modal-body">
+        <form>
+  <div class="form-row">
+    <div class="form-group col-md-6">
+      <label for="inputEmail4">Test Name</label>
+      <input type="text" class="form-control" id="tname" placeholder="Test Name">
+    </div>
+    <div class="form-group col-md-6">
+      <label for="inputPassword4">Test Date</label>
+      <input type="date" class="form-control" id="tdate" placeholder="Test Date">
+    </div>
+  </div>
+  <div class="form-group col-md-6">
+      <label for="inputEmail4">Test Price</label>
+    <input type="number" class="form-control" id="cash" placeholder="Test price">
+    </div>
+    <div class="form-group col-md-6">
+      <label for="inputPassword4">Test Result</label>
+      <input type="text" class="form-control" id="tresult" placeholder="Test Result">
+    </div>
+	 <div class="form-group col-md-6">
+      <label for="inputEmail4">Doctor Remark</label>
+       <textarea class="form-control" rows="3" id="dremark" placeholder="Doctor Remark"></textarea>
+    </div>
+  </div>
+   <div class="modal-footer">
+        <button type="button"  onclick="save1();"  data-dismiss="modal">Save</button>
+      </div>
+
+	  
+            
+
+	
+</body>
+</html>
